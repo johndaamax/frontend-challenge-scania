@@ -38,12 +38,14 @@ export default function Table({ data, columns }: TableProps) {
                 {rows.map(row => {
                     prepareRow(row)
                     return (
-                        <tr {...row.getRowProps()}>
+                        <tr {...row.getRowProps()}
+                            className='bg-white hover:bg-[#C1C6D8]'
+                        >
                             {row.cells.map(cell => {
                                 return (
                                     <td
                                         {...cell.getCellProps()}
-                                        className='border-b-2 border-gray-200 py-3 px-2 md:px-4  bg-white'
+                                        className='border-b-2 border-gray-200 py-3 px-2 md:px-4'
                                     >
                                         {cell.render('Cell')}
                                     </td>
