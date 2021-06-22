@@ -1,5 +1,4 @@
-import * as React from 'react'
-import { useTable } from 'react-table'
+import { useTable } from 'react-table';
 
 type Column = { Header: string, accessor: string }
 type TableProps = {
@@ -14,8 +13,7 @@ export default function Table({ data, columns }: TableProps) {
         headerGroups,
         rows,
         prepareRow,
-    } = useTable({ columns, data })
-
+    } = useTable({ columns, data });
 
     return (
         <table {...getTableProps()}
@@ -28,7 +26,7 @@ export default function Table({ data, columns }: TableProps) {
                         {headerGroup.headers.map(column => (
                             <th
                                 {...column.getHeaderProps()}
-                                className='w-1/4 border-b-2 border-gray-200 px-4 py-3 bg-[#C1C6D8] text-black font-bold'
+                                className='w-1/4 border-b-2 border-gray-200 py-3 px-2 md:px-4 bg-[#C1C6D8] text-black font-bold'
                             >
                                 {column.render('Header')}
                             </th>
@@ -45,7 +43,7 @@ export default function Table({ data, columns }: TableProps) {
                                 return (
                                     <td
                                         {...cell.getCellProps()}
-                                        className='border-b-2 border-gray-200 px-4 py-3 bg-white'
+                                        className='border-b-2 border-gray-200 py-3 px-2 md:px-4  bg-white'
                                     >
                                         {cell.render('Cell')}
                                     </td>

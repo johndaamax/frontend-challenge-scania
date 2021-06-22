@@ -2,25 +2,37 @@ export const data = [
     {
         driver: 'Marcus Lundberg',
         company: 'Aris FC',
-        distance: '75,044 km',
+        distance: {
+            value: 75044,
+            unit: 'km'
+        },
         score: 52
     },
     {
         driver: 'Marcus Mena Pacheco',
         company: 'Lio LTD',
-        distance: '129,417 km',
+        distance: {
+            value: 129417,
+            unit: 'km'
+        },
         score: 95
     },
     {
         driver: 'Valentine Ichtertz',
         company: 'LOTS Group',
-        distance: '244,656 km',
+        distance: {
+            value: 244656,
+            unit: 'km'
+        },
         score: 67
     },
     {
         driver: 'Niklas Rosén',
         company: 'DD Interactive',
-        distance: '200,000 km',
+        distance: {
+            value: 200000,
+            unit: 'km'
+        },
         score: 78
     },
 ]

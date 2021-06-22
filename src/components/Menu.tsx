@@ -1,18 +1,20 @@
-import * as React from 'react'
-import { Menu } from '@headlessui/react'
-import { ChevronDownIcon } from '@heroicons/react/solid'
+import * as React from 'react';
+import { Menu } from '@headlessui/react';
+import { ChevronDownIcon } from '@heroicons/react/solid';
 
-const options = ['<= 200.000 km', '> 200.000 km']
+type MenuProps = {
+    options: Array<string>,
+    selectedIndex: number,
+    handleChangedIndex: (index: number) => void
+}
 
-export default function CustomMenu(/*{ options }: { options: Array<string> }*/) {
-    const [selectedIndex, setSelectedIndex] = React.useState(-1);
+export default function CustomMenu({ options, selectedIndex, handleChangedIndex }: MenuProps) {
 
-    console.log(selectedIndex)
-    const handleMenuItemClick = (
+    function handleMenuItemClick(
         event: React.MouseEvent<HTMLDivElement, MouseEvent>,
         index: number,
-    ) => {
-        setSelectedIndex(index);
+    ) {
+        handleChangedIndex(index);
     };
 
     return (
@@ -22,7 +24,7 @@ export default function CustomMenu(/*{ options }: { options: Array<string> }*/) 
                     <>
                         <div className=''>
                             <Menu.Button
-                                className="focus:ring-1 focus:ring-[#A4A6AB] inline-flex justify-between w-full px-4 py-2 text-sm font-medium rounded bg-opacity-20 hover:bg-opacity-30 focus:outline-none">
+                                className="inline-flex justify-between w-full px-4 py-2 text-sm font-medium rounded-sm bg-opacity-20 hover:bg-opacity-30 focus:outline-none focus:ring-1 focus:ring-[#A4A6AB]">
                                 {selectedIndex > -1 ? options[selectedIndex] : `Distance`}
                                 <ChevronDownIcon
                                     className={`${open && 'transform rotate-180'} transition w-5 h-5 ml-2 -mr-1 text-violet-200 hover:text-violet-100`}
